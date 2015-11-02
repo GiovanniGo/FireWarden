@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="store">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,6 +39,13 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
     @RenderSection("scripts", required: false)
+    <script type="text/javascript" src="~/Scripts/angularapp.js"></script>
+
+    <div>
+        <p> This is from AngularJS {{4 + 6}}</p>
+        <p> {{ Hello Everyone }}</p>
+    </div>
 </body>
 </html>
