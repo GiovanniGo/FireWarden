@@ -1,7 +1,8 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
+<div ng-controller="MessageController as msg">
+    <h2>@ViewBag.Title.</h2>
+    <h3>{{msg.message.about}}</h3>
+</div>
 <p>Use this area to provide additional information.</p>

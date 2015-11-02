@@ -1,9 +1,10 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
+<div ng-controller="MessageController as msg">
+    <h2>@ViewBag.Title.</h2>
+    <h3>{{msg.message.contact}}</h3>
+</div>
 <address>
     One Microsoft Way<br />
     Redmond, WA 98052-6399<br />
