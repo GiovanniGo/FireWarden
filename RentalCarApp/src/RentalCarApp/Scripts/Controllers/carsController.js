@@ -3,50 +3,50 @@
 
     angular.module('carsApp')
         .controller('CarsQueryController', CarsQueryController)
-        .controller('CarsAddController', CarsAddController)
-        .controller('CarsEditController', CarsEditController)
-        .controller('CarsDeleteController', CarsDeleteController);
+        .controller('CarsAddController', CarsAddController);
+        //.controller('CarsEditController', CarsEditController)
+        //.controller('CarsDeleteController', CarsDeleteController);
 
 
-    CarsQueryController.$inject = ['$scope', 'Car'];
-    function CarsQueryController($scope, Car) {
-        $scope.cars = Car.query();
+    CarsQueryController.$inject = ['Car'];
+    function CarsQueryController( Car) {
+        this.cars = Car.query();
     }
 
-    CarsAddController.$inject = ['$scope', '$location', 'Car'];
-    function CarsAddController($scope, $location, Car) {
-        $scope.car = new Car();
-        $scope.add = function() {
-            $scope.car.$save(function() {
+    CarsAddController.$inject = ['$location', 'Car'];
+    function CarsAddController( $location, Car) {
+        this.car = new Car();
+        this.add = function () {
+            this.car.$save(function () {
                 $location.path('/');
             });
         };
     }
 
-    CarsEditController.$inject = ['$scope', '$routeParams', '$location', 'Car'];
-    function CarsEditController($scope, $routeParams, $location, Car) {
-        $scope.car = Car.get({
-            id: $routeParams.id
-        });
-        $scope.edit = function() {
-            $scope.car.$save(function() {
-                $location.path('/');
-            });
-        };
-    }
+    //CarsEditController.$inject = ['$scope', '$routeParams', '$location', 'Car'];
+    //function CarsEditController($scope, $routeParams, $location, Car) {
+    //    $scope.car = Car.get({
+    //        id: $routeParams.id
+    //    });
+    //    $scope.edit = function() {
+    //        $scope.car.$save(function() {
+    //            $location.path('/');
+    //        });
+    //    };
+    //}
 
-    CarsDeleteController.$inject = ['$scope', '$routeParams', '$location', 'Car'];
-    function CarsDeleteController($scope, $routeParams, $location, Car) {
-        $scope.car = Car.get({
-            id: $routeParams.id
-        });
-        $scope.remove = function() {
-            $scope.car.$remove({
-                id: $scope.car.Id
-            }, function() {
-                $location.path('/');
-            });
-        };
-    }
+    //CarsDeleteController.$inject = ['$scope', '$routeParams', '$location', 'Car'];
+    //function CarsDeleteController($scope, $routeParams, $location, Car) {
+    //    $scope.car = Car.get({
+    //        id: $routeParams.id
+    //    });
+    //    $scope.remove = function() {
+    //        $scope.car.$remove({
+    //            id: $scope.car.Id
+    //        }, function() {
+    //            $location.path('/');
+    //        });
+    //    };
+    //}
 
 })();
