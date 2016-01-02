@@ -19,13 +19,13 @@ namespace Service
             this.catalogService = catalogService;
         }
 
-        public double Total(string[] skuList)
+        public double Total(string[] skuList, ref IList<IProduct> receipt)
         {
             List<IProduct> productBasket = new List<IProduct>();
             foreach (string sku in skuList)
             {
                 IProduct product = catalogService.getProduct(sku.Trim());
-                if (product != null || product.Properties.Count > 0)
+                if (product != null && product.Properties.Count > 0)
                 {
                     productBasket.Add(product);
                 }
@@ -35,6 +35,7 @@ namespace Service
                 pricingRules.applyPricingRules(productBasket, catalogService);
 
             double totalCost = discountedProductBasket.Sum(x => (double)x.Properties["Price"]);
+            receipt = discountedProductBasket;
             return totalCost;
         }
     }

@@ -36,17 +36,23 @@ namespace View
                 }
             }
         }
-   
-        string CatalogFileName
+
+        public string CatalogFileName
         {
             get { return catalogTextBox.Text; }
             set { catalogTextBox.Text = value; }
         }
 
-        string CheckoutFileName
+        public string CheckoutProduct
         {
             get { return checkoutTextBox.Text; }
             set { checkoutTextBox.Text = value; }
+        }
+
+        public string Receipt
+        {
+            get { return receiptTextBox.Text; }
+            set { receiptTextBox.Text = value; }
         }
 
         public CheckoutForm(string defaultCatalogFile)
@@ -94,14 +100,9 @@ namespace View
         }
 
         private void checkoutButton_Click(object sender, EventArgs e)
-        {
-            string checkoutFile = checkoutTextBox.Text;
-            if (File.Exists(checkoutFile))
-            {
-                string content = File.ReadAllText(checkoutFile);
-                string[] checkoutList = content.Split(',');
-                CalculateTotal(this, checkoutList);
-            }
+        {      
+            string[] checkoutList = checkoutTextBox.Text.Split(',');
+            CalculateTotal(this, checkoutList);
         }
 
         private void OnPropertyChanged(string property)
@@ -118,7 +119,7 @@ namespace View
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                CheckoutFileName = fileDialog.FileName;
+                CheckoutProduct = fileDialog.FileName;
             }
         }
     }

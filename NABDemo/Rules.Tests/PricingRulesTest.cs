@@ -108,7 +108,7 @@ namespace Rules.Test
         [TestMethod]
         public void MbpBundleTest()
         {
-            // Test Bundle Deals with every Mac Book Pro Purchased
+            // Test Bundle Deals with every Mac Book Pro Purchased without HMDI cables in basket
             List<IProduct> productBasket = new List<IProduct>();
             for (int i = 0; i < 4; i++)
             {
@@ -116,12 +116,54 @@ namespace Rules.Test
             }
 
             productBasket = pricingRules.applyPricingRules(productBasket, mockCatalogService.Object);
-            List<IProduct> hdmiCables = productBasket.FindAll(x => x.Properties["SKU"] == "hdm");
+            IList<IProduct> hdmiCables = productBasket.FindAll(x => x.Properties["SKU"] == "hdm");
             Assert.AreEqual(4, hdmiCables.Count);
             foreach (IProduct hdmiCable in hdmiCables)
             {
                 Assert.AreEqual(0, hdmiCable.Properties["Price"]);
             }
+
+            // Test Bundle Deals with every Mac Book Pro Purchased with HMDI cables less than than MBP
+            productBasket.Clear();
+            for (int i = 0; i < 4; i++)
+            {
+                productBasket.Add(createMbp());
+            }
+
+            for (int i = 0; i < 2; i++)
+            {
+                productBasket.Add(createHdm());
+            }
+
+            productBasket = pricingRules.applyPricingRules(productBasket, mockCatalogService.Object);
+            hdmiCables = productBasket.FindAll(x => x.Properties["SKU"] == "hdm");
+            Assert.AreEqual(4, hdmiCables.Count);
+            foreach (IProduct hdmiCable in hdmiCables)
+            {
+                Assert.AreEqual(0, hdmiCable.Properties["Price"]);
+            }
+
+            // Test Bundle Deals with every Mac Book Pro Purchased with HMDI cables more than than MBP
+            productBasket.Clear();
+            for (int i = 0; i < 4; i++)
+            {
+                productBasket.Add(createMbp());
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                productBasket.Add(createHdm());
+            }
+
+            productBasket = pricingRules.applyPricingRules(productBasket, mockCatalogService.Object);
+            hdmiCables = productBasket.FindAll(x => x.Properties["SKU"] == "hdm");
+            Assert.AreEqual(5, hdmiCables.Count);
+            int freeHDMIcount = 0;
+            foreach (IProduct hdmiCable in hdmiCables)
+            {
+                freeHDMIcount += (hdmiCable.Properties["Price"] == 0) ? 1 : 0;
+            }
+            Assert.AreEqual(4, freeHDMIcount);
         }
 
         [TestMethod]

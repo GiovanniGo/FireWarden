@@ -36,8 +36,9 @@
             this.importProductListButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.checkoutTextBox = new System.Windows.Forms.TextBox();
-            this.checkoutBrowseButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.receiptTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // checkoutButton
@@ -74,8 +75,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 181);
+            this.label1.Location = new System.Drawing.Point(5, 282);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 20);
             this.label1.TabIndex = 3;
@@ -83,8 +85,9 @@
             // 
             // priceLabel
             // 
+            this.priceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.priceLabel.AutoSize = true;
-            this.priceLabel.Location = new System.Drawing.Point(101, 181);
+            this.priceLabel.Location = new System.Drawing.Point(98, 282);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(63, 20);
             this.priceLabel.TabIndex = 4;
@@ -120,17 +123,6 @@
             this.checkoutTextBox.Size = new System.Drawing.Size(448, 49);
             this.checkoutTextBox.TabIndex = 7;
             // 
-            // checkoutBrowseButton
-            // 
-            this.checkoutBrowseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkoutBrowseButton.Location = new System.Drawing.Point(576, 67);
-            this.checkoutBrowseButton.Name = "checkoutBrowseButton";
-            this.checkoutBrowseButton.Size = new System.Drawing.Size(44, 49);
-            this.checkoutBrowseButton.TabIndex = 8;
-            this.checkoutBrowseButton.Text = "...";
-            this.checkoutBrowseButton.UseVisualStyleBackColor = true;
-            this.checkoutBrowseButton.Click += new System.EventHandler(this.checkoutBrowseButton_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -140,13 +132,35 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Checkout List :";
             // 
+            // receiptTextBox
+            // 
+            this.receiptTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.receiptTextBox.Location = new System.Drawing.Point(257, 168);
+            this.receiptTextBox.Multiline = true;
+            this.receiptTextBox.Name = "receiptTextBox";
+            this.receiptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.receiptTextBox.Size = new System.Drawing.Size(463, 131);
+            this.receiptTextBox.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(270, 145);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Receipt";
+            // 
             // CheckoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 219);
+            this.ClientSize = new System.Drawing.Size(732, 311);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.receiptTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.checkoutBrowseButton);
             this.Controls.Add(this.checkoutTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.importProductListButton);
@@ -172,8 +186,9 @@
         private System.Windows.Forms.Button importProductListButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox checkoutTextBox;
-        private System.Windows.Forms.Button checkoutBrowseButton;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox receiptTextBox;
+        private System.Windows.Forms.Label label4;
     }
 }
 
