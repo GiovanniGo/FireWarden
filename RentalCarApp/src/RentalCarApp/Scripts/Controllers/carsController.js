@@ -18,7 +18,7 @@
         this.car = new Car();
         this.add = function () {
             this.car.$save(function () {
-                $location.path('/');
+                $location.path('/cars/browse');
             });
         };
     }
@@ -35,14 +35,14 @@
     //    };
     //}
 
-    //CarsDeleteController.$inject = ['$scope', '$routeParams', '$location', 'Car'];
-    //function CarsDeleteController($scope, $routeParams, $location, Car) {
-    //    $scope.car = Car.get({
+    //CarsDeleteController.$inject = ['$routeParams', '$location', 'Car'];
+    //function CarsDeleteController($routeParams, $location, Car) {
+    //    this.car = Car.get({
     //        id: $routeParams.id
     //    });
-    //    $scope.remove = function() {
-    //        $scope.car.$remove({
-    //            id: $scope.car.Id
+    //    this.remove = function() {
+    //        this.car.$remove({
+    //            id: this.car.Id
     //        }, function() {
     //            $location.path('/');
     //        });

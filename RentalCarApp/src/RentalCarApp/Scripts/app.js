@@ -23,8 +23,9 @@
             //    controller: 'CarsEditController'
             //})
             //.when('/cars/delete/:id', {
-            //    templateUrl: '/templates/pages/car/delete.html',
-            //    controller: 'CarsDeleteController'
+            //    templateUrl: '/templates/pages/car/list.html',
+            //    controller: 'CarsDeleteController',
+            //    controllerAs: 'CarsDeleteCtrl'
             //})
             .otherwise({
                 redirectTo: "/"
