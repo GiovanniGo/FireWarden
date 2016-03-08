@@ -42,12 +42,12 @@ namespace RentalCarApp.API.Controllers
             }
             else
             {
-            //var original = dbContext.Cars.FirstOrDefault(m => m.Id == car.Id);
-            //original.Title = car.Title;
-            //original.Director = car.Director;
-            //dbContext.SaveChanges();
-            //return new ObjectResult(original);
-            return new ObjectResult(car);
+                var original = dbContext.Cars.FirstOrDefault(c => c.Id == car.Id);
+                original.Model = car.Model;
+                original.PlateNumber = car.PlateNumber;
+                original.Brand = car.Brand;
+                dbContext.SaveChanges();
+                return new ObjectResult(original);
             }
         }
 

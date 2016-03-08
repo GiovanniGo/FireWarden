@@ -2,18 +2,18 @@
 <div class="row">
     <div class="col-md-5">
 
-        <form ng-submit="CarsAddCtrl.add()">
+        <form ng-submit="CarsFormCtrl.submit()">
             <div class="form-group">
                 <label for="Brand">Brand</label>
-                <input name="Brand" type="text" class="form-control" placeholder="Enter Brand" ng-model="CarsAddCtrl.car.Brand">
+                <input name="Brand" type="text" class="form-control" placeholder="Enter Brand" ng-model="CarsFormCtrl.car.Brand">
             </div>
             <div class="form-group">
                 <label for="Model">Model</label>
-                <input name="Model" type="text" class="form-control" placeholder="Enter Model" ng-model="CarsAddCtrl.car.Model">
+                <input name="Model" type="text" class="form-control" placeholder="Enter Model" ng-model="CarsFormCtrl.car.Model">
             </div>
             <div class="form-group">
                 <label for="PlateNumber">Plate Number</label>
-                <input name="PlateNumber" type="text" class="form-control" placeholder="Enter Plate Number" ng-model="CarsAddCtrl.car.PlateNumber">
+                <input name="PlateNumber" type="text" class="form-control" placeholder="Enter Plate Number" ng-model="CarsFormCtrl.car.PlateNumber">
             </div>
             <a href="/cars/browse" class="btn btn-default">Cancel</a>
             <button type="submit" class="btn btn-primary">Save</button>

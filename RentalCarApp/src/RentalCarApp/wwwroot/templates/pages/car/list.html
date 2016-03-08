@@ -13,7 +13,7 @@
         <tbody>
             <tr ng-repeat="car in CarsQueryCtrl.cars">
                 <td>
-                    <button href="/cars/edit/{{car.Id}}" class="btn btn-default btn-xs">edit</button>
+                    <a href="/cars/edit/{{car.Id}}" class="btn btn-default btn-xs">edit</a>
                     <button ng-click='CarsQueryCtrl.remove(car.Id)' class="btn btn-danger btn-xs">delete</button>
                 </td>
                 <td>{{car.Brand}}</td>

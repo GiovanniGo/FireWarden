@@ -14,14 +14,15 @@
                 controllerAs: 'CarsQueryCtrl'
             })
             .when('/cars/add', {
-                templateUrl: '/templates/pages/car/add.html',
+                templateUrl: '/templates/pages/car/form.html',
                 controller: 'CarsAddController',
-                controllerAs: 'CarsAddCtrl'
+                controllerAs: 'CarsFormCtrl'
             })
-            //.when('/cars/edit/:id', {
-            //    templateUrl: '/templates/pages/car/edit.html',
-            //    controller: 'CarsEditController'
-            //})
+            .when('/cars/edit/:id', {
+                templateUrl: '/templates/pages/car/form.html',
+                controller: 'CarsEditController',
+                controllerAs: 'CarsFormCtrl'
+            })
             .otherwise({
                 redirectTo: "/"
             });

@@ -3,9 +3,8 @@
 
     angular.module('rentalCarApp')
         .controller('CarsQueryController', CarsQueryController)
-        .controller('CarsAddController', CarsAddController);
-        //.controller('CarsEditController', CarsEditController)
-        //.controller('CarsDeleteController', CarsDeleteController);
+        .controller('CarsAddController', CarsAddController)
+        .controller('CarsEditController', CarsEditController);
 
 
     CarsQueryController.$inject = ['$route','carsResource'];
@@ -26,23 +25,23 @@
     CarsAddController.$inject = ['$location', 'carsResource'];
     function CarsAddController($location, carsResource) {
         this.car = new carsResource();
-        this.add = function () {
+        this.submit = function () {
             this.car.$save(function () {
                 $location.path('/cars/browse');
             });
         };
     }
 
-    //CarsEditController.$inject = ['$scope', '$routeParams', '$location', 'Car'];
-    //function CarsEditController($scope, $routeParams, $location, Car) {
-    //    $scope.car = Car.get({
-    //        id: $routeParams.id
-    //    });
-    //    $scope.edit = function() {
-    //        $scope.car.$save(function() {
-    //            $location.path('/');
-    //        });
-    //    };
-    //}
+    CarsEditController.$inject = ['$routeParams', '$location', 'carsResource'];
+    function CarsEditController($routeParams, $location, carsResource) {
+        this.car = carsResource.get({
+            id: $routeParams.id
+        });
+        this.submit = function() {
+            this.car.$save(function() {
+                $location.path('/cars/browse');
+            });
+        };
+    }
 
 })();
