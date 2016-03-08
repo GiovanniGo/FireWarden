@@ -7,6 +7,7 @@
     grunt.initConfig({
         uglify: {
             my_target: {
+                options: { beautify: true},
                 files: { 'wwwroot/app.js': ['Scripts/app.js', 'Scripts/**/*.js'] }
             }
         },

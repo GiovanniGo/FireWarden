@@ -2,7 +2,7 @@
     'use strict';
 
     config.$inject = ['$routeProvider', '$locationProvider'];
-    angular.module('carsApp', ['ngRoute', 'carsServices']).config(config);
+    angular.module('rentalCarApp', ['ngRoute', 'appResources']).config(config);
     
     function config($routeProvider, $locationProvider) {
         $routeProvider.when('/', {
@@ -21,11 +21,6 @@
             //.when('/cars/edit/:id', {
             //    templateUrl: '/templates/pages/car/edit.html',
             //    controller: 'CarsEditController'
-            //})
-            //.when('/cars/delete/:id', {
-            //    templateUrl: '/templates/pages/car/list.html',
-            //    controller: 'CarsDeleteController',
-            //    controllerAs: 'CarsDeleteCtrl'
             //})
             .otherwise({
                 redirectTo: "/"
