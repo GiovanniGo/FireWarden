@@ -27,3 +27,10 @@ textarea {
   color: #fff;
   background-color: greenyellow;
 }
+
+.hero {
+    background-image:url('http://raumrot.com/wp-content/uploads/2015/12/msp_0607_3034.jpg');
+    background-size:cover;
+    background-color: #EEEEEE;
+    height:300px;
+}
