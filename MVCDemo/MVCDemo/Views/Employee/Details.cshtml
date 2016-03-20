@@ -1,0 +1,52 @@
+﻿@model MVCDemo.Models.Employee
+
+@{
+    Layout = null;
+}
+<div>
+    <h2>Employee Details</h2>
+
+    <table style="font-family:Arial">
+        <tr>
+            <td>
+                <b>Employee Id:</b>
+            </td>
+            <td>
+                @Model.EmployeeId
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Name:</b>
+            </td>
+            <td>
+                @Model.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Gender:</b>
+            </td>
+            <td>
+                @Model.Gender
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>City:</b>
+            </td>
+            <td>
+                @Model.City
+            </td>
+        </tr>
+        <tr>
+        <td>
+            <b>Date Of Birth:</b>
+        </td>
+        <td>
+            @Model.DateOfBirth
+        </td>
+        </tr>
+    </table>
+    @Html.ActionLink("Back to Employee List", "Index")
+</div>
